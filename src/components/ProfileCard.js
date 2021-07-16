@@ -7,14 +7,12 @@ const useStyles = makeStyles((theme) => ({
   image: {
     borderRadius: "16px",
     [theme.breakpoints.down("md")]: {
-      height: "300px",
+      height: "280px",
     },
   },
   align: {
     display: "flex",
     justifyContent: "space-between",
-    textAlign: "left",
-    marginTop: "2rem",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
     },
