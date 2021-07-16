@@ -1,128 +1,101 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, IconButton, Typography } from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
-import SortIcon from "@material-ui/icons/Sort";
-import ProfileCard from "./ProfileCard";
-import clsx from "clsx";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import { Container, IconButton } from "@material-ui/core";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Collapse from "@material-ui/core/Collapse";
+import { Link as Scroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
     flexGrow: 0,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    minHeight: "100vh",
+    backgroundColor: "#00071c",
     padding: "2rem",
+    fontFamily: "Manrope",
   },
-  appbar: {
-    background: "none",
+  heroText: {
+    color: "white",
+    fontSize: "2rem",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "3rem",
+    },
+  },
+  goDown: {
+    color: "white",
+  },
+  scrollText: {
+    color: "white",
+    fontSize: "12px",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "16px",
+    },
+  },
+  scroller: {
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "end",
+    bottom: "2rem",
+    left: "2rem",
+    [theme.breakpoints.up("sm")]: {
+      left: "2.5rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      left: "5rem",
+    },
+  },
+  devColony: {
+    hover: {
+      color: "#16a085",
+    },
+  },
+  name: {
+    fontSize: "18px",
+    color: "#64ffda",
   },
   appbarTitle: {
-    flexGrow: 1,
-    color: "black",
-    fontSize: "22px",
-    fontWeight: "bold",
-  },
-  icon: {
-    color: "black",
-    fontSize: "2rem",
-  },
-  appbarWrapper: {
-    display: "flex",
-  },
-  head: {
-    fontWeight: 600,
-    marginBottom: "2rem",
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "12rem",
-    },
+    opacity: 0,
   },
 }));
 
-function Hero() {
+export default function ButtonAppBar() {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    right: false,
-  });
+  const [checked, setChecked] = useState(false);
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+  useEffect(() => {
+    setChecked(true);
+  }, []);
 
   return (
-    <div className={classes.root} id="hero">
+    <div className={classes.root}>
       <Container>
-        <AppBar className={classes.appbar} elevation={0}>
-          <Container className={classes.appbarWrapper}>
-            <h1 className={classes.appbarTitle}>Nand</h1>
-            <IconButton>
-              <div>
-                {["right"].map((anchor) => (
-                  <React.Fragment key={anchor}>
-                    <SortIcon
-                      className={classes.icon}
-                      onClick={toggleDrawer(anchor, true)}
-                    />
-                    <SwipeableDrawer
-                      anchor={anchor}
-                      open={state[anchor]}
-                      onClose={toggleDrawer(anchor, false)}
-                      onOpen={toggleDrawer(anchor, true)}
-                    >
-                      {list(anchor)}
-                    </SwipeableDrawer>
-                  </React.Fragment>
-                ))}
-              </div>
-            </IconButton>
-          </Container>
-        </AppBar>
-        <Typography className={classes.head} variant="h4">
-          About Me
-        </Typography>
-        <ProfileCard className={classes.ProfileCard} />
+        <Collapse
+          in={checked}
+          {...(checked ? { timeout: 1000 } : {})}
+          collapsedHeight={50}
+        >
+          <h1 className={classes.heroText}>
+            <h3 className={classes.name}>Hi, I'm Nand Kishor</h3>
+            I build things for Web <br />
+            Currently building{" "}
+            <span id="devColony" className={classes.devColony}>
+              Dev Colony
+            </span>{" "}
+            for democratizing mentorships for everyone
+          </h1>
+          <div className={classes.scroller}>
+            <Scroll to="hero" smooth={true}>
+              <IconButton>
+                <ExpandMoreIcon fontSize="small" className={classes.goDown} />
+              </IconButton>
+              <span className={classes.scrollText}>scroll</span>
+            </Scroll>
+          </div>
+        </Collapse>
       </Container>
     </div>
   );
 }
-
-export default Hero;

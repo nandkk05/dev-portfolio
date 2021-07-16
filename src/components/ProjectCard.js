@@ -1,82 +1,68 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import { Container, IconButton } from "@material-ui/core";
 import { projects } from "../data/userData";
-import CallMadeIcon from "@material-ui/icons/CallMade";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
-  main: {
-    marginBottom: "8rem",
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "12rem",
-    },
-  },
-  media: {
-    height: 140,
-  },
-  heading: {
-    fontWeight: 600,
-    marginBottom: "2rem",
-  },
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "auto auto auto",
-    gridColumnGap: "50px",
-    gridRowGap: "50px",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      flexDirection: "column",
-    },
-  },
-}));
 
 export default function MediaCard() {
-  const classes = useStyles();
-
   return (
-    <Container className={classes.main}>
-      <Typography className={classes.heading} variant="h4">
-        Projects
-      </Typography>
-      <div className={classes.cards}>
-        {projects.map((project) => (
-          <Card className={classes.root} elevation={1}>
-            <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image={project.image}
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {project.name}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {project.desc}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                GitHub{" "}
-                <IconButton>
-                  <CallMadeIcon fontSize="small" color="primary" />{" "}
-                </IconButton>
-              </Button>
-            </CardActions>
-          </Card>
-        ))}
+    <div>
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap w-full mb-20">
+          <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+            <h1 class="sm:text-4xl text-3xl font-bold mb-2 text-white">
+              Some Things I have built
+            </h1>
+          </div>
+          <p class="lg:w-1/2 w-full leading-relaxed text-white text-lg">
+            Here are some of my side projects which I created using React js,
+            Vue js, Tailwind CSS, and Firebase
+          </p>
+        </div>
+        <div class="flex flex-wrap -m-4 justify-between">
+          <div class="flex flex-wrap -m-4 p-8 sm:p-0">
+            {projects.map((project) => (
+              <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-800 rounded-lg overflow-hidden">
+                  <img
+                    class="lg:h-48 md:h-36 w-full object-cover object-center"
+                    src={project.image}
+                    alt="blog"
+                  />
+                  <div class="p-6">
+                    <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
+                      {project.category}
+                    </h2>
+                    <h1 class="title-font text-lg font-medium text-white mb-3">
+                      {project.name}
+                    </h1>
+                    <p class="leading-relaxed mb-3 text-white">
+                      {project.desc}
+                    </p>
+                    <div class="flex items-center flex-wrap ">
+                      <a
+                        href={project.githubLink}
+                        class="text-indigo-400 inline-flex items-center md:mb-2 lg:mb-0"
+                      >
+                        GitHub
+                        <svg
+                          class="w-4 h-4 ml-2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M5 12h14"></path>
+                          <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}{" "}
+          </div>
+        </div>
       </div>
-    </Container>
+    </div>
   );
 }
