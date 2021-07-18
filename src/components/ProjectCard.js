@@ -39,7 +39,7 @@ export default function ProjectCard() {
                     <div class="flex items-center flex-wrap ">
                       <a
                         href={project.githubLink}
-                        class="text-indigo-400 inline-flex items-center md:mb-2 lg:mb-0"
+                        class="text-teal inline-flex items-center md:mb-2 lg:mb-0"
                       >
                         GitHub
                         <svg
