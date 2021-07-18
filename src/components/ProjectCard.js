@@ -1,7 +1,7 @@
 import React from "react";
 import { projects } from "../data/userData";
 
-export default function MediaCard() {
+export default function ProjectCard() {
   return (
     <div>
       <div class="container px-5 py-24 mx-auto">

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MediaCard() {
+export default function ProfileCard() {
   return (
     <div>
       <div

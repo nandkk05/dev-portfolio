@@ -17,13 +17,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "2rem",
     fontFamily: "Manrope",
   },
-  heroText: {
-    color: "white",
-    fontSize: "2rem",
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "3rem",
-    },
-  },
   goDown: {
     color: "white",
   },
@@ -55,13 +48,14 @@ const useStyles = makeStyles((theme) => ({
   name: {
     fontSize: "18px",
     color: "#64ffda",
+    marginBottom: "1.5rem",
   },
   appbarTitle: {
     opacity: 0,
   },
 }));
 
-export default function ButtonAppBar() {
+export default function Hero() {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
 
@@ -77,14 +71,14 @@ export default function ButtonAppBar() {
           {...(checked ? { timeout: 1000 } : {})}
           collapsedHeight={50}
         >
-          <h1 className={classes.heroText}>
+          <h1 className="text-white text-4xl sm:text-6xl font-semibold">
             <h3 className={classes.name}>Hi, I'm Nand Kishor</h3>
             I build things for Web <br />
             Currently building{" "}
             <span id="devColony" className={classes.devColony}>
               Dev Colony
             </span>{" "}
-            for democratizing mentorships for everyone
+            for democratizing mentorships for everyone.
           </h1>
           <div className={classes.scroller}>
             <Scroll to="hero" smooth={true}>

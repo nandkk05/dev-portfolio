@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, IconButton, Typography } from "@material-ui/core";
+import { Container, IconButton } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import SortIcon from "@material-ui/icons/Sort";
 import clsx from "clsx";
@@ -9,9 +9,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import projects from "../components/ProjectCard";
+import WorkTwoToneIcon from "@material-ui/icons/WorkTwoTone";
+import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone";
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,11 +50,17 @@ const useStyles = makeStyles((theme) => ({
     background: "#00071c",
     color: "white",
   },
+  menuIcon: {
+    color: "white",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: "2rem",
+    },
+  },
 }));
 
-function Hero() {
+const Header = (props) => {
+  const { history } = props;
   const classes = useStyles();
-  const [component, setComponent] = useState("");
   const [state, setState] = React.useState({
     bottom: false,
   });
@@ -71,6 +77,19 @@ function Hero() {
     setState({ ...state, [anchor]: open });
   };
 
+  const itemsList = [
+    {
+      text: "Projects",
+      icon: <WorkTwoToneIcon />,
+      onClick: () => history.push("/work"),
+    },
+    {
+      text: "About",
+      icon: <InfoTwoToneIcon />,
+      onClick: () => history.push("/about"),
+    },
+  ];
+
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
@@ -81,14 +100,17 @@ function Hero() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Projects", "About"].map((text, index) => (
-          <ListItem button key={text} onClick={() => setComponent(projects)}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {itemsList.map((item) => {
+          const { text, icon, onClick } = item;
+          return (
+            <ListItem button key={item} onClick={onClick}>
+              {icon && (
+                <ListItemIcon className={classes.menuIcon}>{icon}</ListItemIcon>
+              )}
+              <ListItemText primary={text} />
+            </ListItem>
+          );
+        })}
       </List>
     </div>
   );
@@ -147,6 +169,6 @@ function Hero() {
       </Container>
     </div>
   );
-}
+};
 
-export default Hero;
+export default withRouter(Header);
