@@ -11,7 +11,7 @@ export default function ProjectCard() {
               Some Things I have built
             </h1>
           </div>
-          <p class="lg:w-1/2 w-full leading-relaxed text-white text-lg">
+          <p class="lg:w-1/2 w-full leading-relaxed text-gray-300 text-lg">
             Here are some of my side projects which I created using React js,
             Vue js, Tailwind CSS, and Firebase
           </p>
@@ -19,20 +19,20 @@ export default function ProjectCard() {
         <div class="flex flex-wrap -m-4 justify-between">
           <div class="flex flex-wrap -m-4 p-8 sm:p-0">
             {projects.map((project) => (
-              <div class="p-4 md:w-1/3">
-                <div class="h-full border-2 border-gray-800 rounded-lg overflow-hidden">
+              <div class="p-4 md:w-1/3 transform transition-all duration-300 scale-100 hover:scale-95">
+                <div class="h-full border-2 border-navy rounded-lg overflow-hidden">
                   <img
                     class="lg:h-48 md:h-36 w-full object-cover object-center"
                     src={project.image}
                     alt="blog"
                   />
-                  <div class="p-6">
-                    <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-                      {project.category}
-                    </h2>
-                    <h1 class="title-font text-lg font-medium text-white mb-3">
+                  <div class="p-6 bg-navy h-full text-white hover:text-teal">
+                    <h1 class="title-font text-xl font-bold mb-3 leading-relaxed">
                       {project.name}
                     </h1>
+                    <h2 class="tracking-widest text-xs title-font font-base text-gray-200 mb-2">
+                      {project.category}
+                    </h2>
                     <p class="leading-relaxed mb-3 text-white">
                       {project.desc}
                     </p>

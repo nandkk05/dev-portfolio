@@ -14,6 +14,7 @@ module.exports = {
       red: colors.rose,
       yellow: colors.amber,
       teal: "#64ffda",
+      navy: "#112240",
     },
   },
   variants: {

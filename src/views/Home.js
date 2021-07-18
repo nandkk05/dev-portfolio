@@ -6,6 +6,8 @@ import Hero from "../components/Header";
 import ProjectCard from "../components/ProjectCard";
 import ProfileCard from "../components/ProfileCard";
 import Footer from "../components/Footer";
+import Blogs from "../components/Blogs";
+import Contact from "../components/Contact";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +26,8 @@ function Home() {
         <Hero />
         <ProfileCard />
         <ProjectCard />
+        <Blogs />
+        <Contact />
         <Footer />
       </div>
     </div>

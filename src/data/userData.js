@@ -24,3 +24,5 @@ export const projects = [
     githubLink: "https://github.com/nandkk05/devjobs",
   },
 ];
+
+export const devDotToUsername = "nandkk05";
