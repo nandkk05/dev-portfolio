@@ -15,6 +15,7 @@ module.exports = {
       yellow: colors.amber,
       teal: "#64ffda",
       navy: "#112240",
+      tealtint: "rgba(100,255,218,0.1)",
     },
   },
   variants: {
