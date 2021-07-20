@@ -40,7 +40,7 @@ function Blogs() {
 
             <div class="w-70 bg-navy -mt-10 shadow-lg rounded-lg overflow-hidden p-5 transform transition-all duration-300 scale-100 hover:scale-95 text-white hover:text-teal">
               <div class="header-content inline-flex "></div>
-              <div class="mb-4 text-white flex justify-between">
+              <div class="mb-4 text-white flex justify-between text-sm">
                 Published on {article.readable_publish_date}
                 <div className="hover:text-teal">
                   <a href={article.url} target="_blank" rel="noreferrer">

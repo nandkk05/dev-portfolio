@@ -1,5 +1,5 @@
 import React from "react";
-import { moreProjects } from "../data/userData";
+import { projects } from "../data/userData";
 
 function MoreProjects() {
   return (
@@ -15,7 +15,7 @@ function MoreProjects() {
           </p>
         </div>
         <div class="flex flex-wrap -m-4 p-8 sm:p-0">
-          {moreProjects.map((project) => (
+          {projects.map((project) => (
             <div class="xl:w-1/3 md:w-1/2 p-4 text-white transform transition-all duration-300 scale-100 hover:-translate-y-5 text-white hover:text-teal">
               <div class="bg-navy p-6 rounded h-80">
                 <div class="h-12 flex justify-between items-center justify-center rounded-full text-teal mb-4">
@@ -92,9 +92,9 @@ function MoreProjects() {
                     </p>
                   </div>
 
-                  <div class="absolute bottom-12 w-full uppercase">
-                    <span class="items-center leading-none text-xs py-1 text-white">
-                      {project.category}
+                  <div class="absolute bottom-12 w-full">
+                    <span class="items-center text-xs py-1 text-gray-300 tracking-wide">
+                      {project.techStack}
                     </span>
                   </div>
                 </div>

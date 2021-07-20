@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../components/Hero";
 import Hero from "../components/Header";
-import ProjectCard from "../components/ProjectCard";
 import ProfileCard from "../components/ProfileCard";
-import Footer from "../components/Footer";
 import Blogs from "../components/Blogs";
 import Contact from "../components/Contact";
 import MoreProjects from "../components/MoreProjects";
+import { devDotToUsername } from "../data/userData";
+import FeaturedProject from "../components/FeaturedProject";
 
 function Home() {
   return (
@@ -14,11 +14,10 @@ function Home() {
       <Header />
       <Hero />
       <ProfileCard />
-      <ProjectCard />
+      <FeaturedProject />
       <MoreProjects />
-      <Blogs />
+      {devDotToUsername && <Blogs />}
       <Contact />
-      <Footer />
     </>
   );
 }
