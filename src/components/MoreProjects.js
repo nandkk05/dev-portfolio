@@ -8,10 +8,10 @@ function MoreProjects() {
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center text-white">
           <h1 class=" title-font mb-2 text-2xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-4xl">
             {" "}
-            Other Projects
+            More Projects
           </h1>
-          <p class="lg:w-1/2 w-full leading-relaxed text-base">
-            These are some minor projects I built while learning new Tech
+          <p class="lg:w-1/2 w-full leading-relaxed text-base px-5">
+            Here are some projects I built while learning new Tech
           </p>
         </div>
         <div class="flex flex-wrap -m-4 p-8 sm:p-0">
@@ -87,7 +87,7 @@ function MoreProjects() {
                     <h2 class="text-xl tracking-tight font-bold mb-2">
                       {project.name}{" "}
                     </h2>
-                    <p class="leading-relaxed text-base text-white">
+                    <p class="leading-relaxed text-base text-gray-300">
                       {project.desc}
                     </p>
                   </div>

@@ -1,5 +1,6 @@
 import React from "react";
-import { myEmail } from "react";
+import { Link } from "react-router-dom";
+import { myEmail } from "../data/userData";
 
 function CTA() {
   return (
@@ -19,12 +20,12 @@ function CTA() {
             </a>
           </div>
           <div className="ml-3 inline-flex rounded-md shadow">
-            <a
-              href="#/"
+            <Link
+              to="/workspace"
               className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-indigo-50"
             >
               See Projects
-            </a>
+            </Link>
           </div>
         </div>
       </div>

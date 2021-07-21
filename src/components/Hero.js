@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    minHeight: "100vh",
+    minHeight: "80vh",
     backgroundColor: "#00071c",
     padding: "2rem",
     fontFamily: "Manrope",
@@ -40,16 +40,6 @@ const useStyles = makeStyles((theme) => ({
       left: "5rem",
     },
   },
-  devColony: {
-    hover: {
-      color: "#16a085",
-    },
-  },
-  name: {
-    fontSize: "18px",
-    color: "#64ffda",
-    marginBottom: "1.5rem",
-  },
   appbarTitle: {
     opacity: 0,
   },
@@ -71,14 +61,18 @@ export default function Hero() {
           {...(checked ? { timeout: 1000 } : {})}
           collapsedHeight={50}
         >
-          <h1 className="text-white text-4xl sm:text-6xl font-semibold">
-            <h3 className={classes.name}>Hi, I'm Nand Kishor</h3>
-            I build things for Web <br />
-            Currently building{" "}
-            <span id="devColony" className={classes.devColony}>
-              Dev Colony
-            </span>{" "}
-            for democratizing mentorships for everyone.
+          <h1 className="text-white text-4xl sm:text-6xl font-semibold tracking-wide">
+            <h3 className="text-lg text-teal leading-loose">
+              Hi, I'm Nand Kishor
+            </h3>
+            <span className="leading-snug">I build things for Web</span> <br />
+            <span className="text-gray-500 leading-tight">
+              Currently building{" "}
+              <span id="devColony" className="hover:text-teal">
+                Dev Colony
+              </span>{" "}
+              for democratizing mentorships for everyone.
+            </span>
           </h1>
           <div className={classes.scroller}>
             <Scroll to="hero" smooth={true}>

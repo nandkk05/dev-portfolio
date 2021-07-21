@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, IconButton } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import { Container, IconButton } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
 import clsx from "clsx";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
@@ -16,7 +18,6 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 0,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -55,6 +56,16 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     [theme.breakpoints.up("sm")]: {
       marginLeft: "2rem",
+    },
+  },
+  mobileNav: {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  desktopNav: {
+    [theme.breakpoints.down("md")]: {
+      display: "none",
     },
   },
 }));
@@ -116,61 +127,80 @@ const Header = (props) => {
     </div>
   );
 
-  return (
-    <div className={classes.root}>
-      <Container>
-        <AppBar className={classes.appbar} elevation={0}>
-          <Container className={classes.appbarWrapper}>
-            <div className="flex items-center">
-              <Link to="/">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7 my-auto"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="orange"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
-                  />
-                </svg>
-              </Link>
-              <h1 className="ml-2 text-xl font-semibold">Nand</h1>
-            </div>
+  const [value, setValue] = useState("/");
 
-            <IconButton>
-              <div>
-                {["bottom"].map((anchor) => (
-                  <React.Fragment key={anchor}>
-                    <SortIcon
-                      className={classes.icon}
-                      onClick={toggleDrawer(anchor, true)}
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    history.push(newValue);
+  };
+
+  return (
+    <>
+      <div className={classes.root}>
+        <Container>
+          <AppBar className={classes.appbar} elevation={0}>
+            <Container className={classes.appbarWrapper}>
+              <div className="flex items-center text-teal">
+                <Link to="/">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-7 w-7 my-auto"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
                     />
-                    <SwipeableDrawer
-                      anchor={anchor}
-                      open={state[anchor]}
-                      onClose={toggleDrawer(anchor, false)}
-                      onOpen={toggleDrawer(anchor, true)}
-                    >
-                      {list(anchor)}
-                    </SwipeableDrawer>
-                  </React.Fragment>
-                ))}
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                    />
+                  </svg>
+                </Link>
+                <h1 className="ml-2 text-xl font-semibold text-white">Nand</h1>
               </div>
-            </IconButton>
-          </Container>
-        </AppBar>
-      </Container>
-    </div>
+
+              <IconButton className={classes.mobileNav}>
+                <div>
+                  {["bottom"].map((anchor) => (
+                    <React.Fragment key={anchor}>
+                      <SortIcon
+                        className={classes.icon}
+                        onClick={toggleDrawer(anchor, true)}
+                      />
+                      <SwipeableDrawer
+                        anchor={anchor}
+                        open={state[anchor]}
+                        onClose={toggleDrawer(anchor, false)}
+                        onOpen={toggleDrawer(anchor, true)}
+                      >
+                        {list(anchor)}
+                      </SwipeableDrawer>
+                    </React.Fragment>
+                  ))}
+                </div>
+              </IconButton>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="#fff"
+                className={classes.desktopNav}
+              >
+                <Tab label="Workspace" value="/workspace" />
+                <Tab label="About" value="/about" />
+              </Tabs>
+            </Container>
+          </AppBar>
+        </Container>
+      </div>
+    </>
   );
 };
 
