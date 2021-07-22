@@ -4,10 +4,10 @@ import MoreProjects from "../components/MoreProjects";
 
 function Workspace() {
   return (
-    <>
+    <div>
       <FeaturedProject />
       <MoreProjects />
-    </>
+    </div>
   );
 }
 

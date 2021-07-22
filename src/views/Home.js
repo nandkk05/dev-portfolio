@@ -10,7 +10,7 @@ import FeaturedProject from "../components/FeaturedProject";
 
 function Home() {
   return (
-    <>
+    <div>
       <Header />
       <Hero />
       <ProfileCard />
@@ -18,7 +18,7 @@ function Home() {
       <MoreProjects />
       {devDotToUsername && <Blogs />}
       <Contact />
-    </>
+    </div>
   );
 }
 

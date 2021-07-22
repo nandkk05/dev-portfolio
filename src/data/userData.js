@@ -92,7 +92,7 @@ export const featuredProject = [
     image:
       "https://user-images.githubusercontent.com/33036554/126371994-85f5ba5d-2b77-47d7-af7d-e914b00f8f73.jpg",
     techStack: "React js, Tailwind, Firebase",
-    demo: "https://devcol.vercel.app",
+    demo: "",
     githubLink: "https://github.com/nandkk05/devcol",
   },
 ];

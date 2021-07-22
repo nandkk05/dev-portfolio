@@ -7,13 +7,12 @@ import { Link as Scroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 0,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     minHeight: "80vh",
-    backgroundColor: "#00071c",
+    background: "#00071c",
     padding: "2rem",
     fontFamily: "Manrope",
   },
@@ -55,7 +54,7 @@ export default function Hero() {
 
   return (
     <div className={classes.root}>
-      <Container>
+      <Container className="container px-5 py-24 mx-auto text-white">
         <Collapse
           in={checked}
           {...(checked ? { timeout: 1000 } : {})}

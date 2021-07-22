@@ -6,12 +6,14 @@ import Home from "./views/Home";
 import Work from "./views/Workspace";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { CssBaseline } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Manrope",
     background: "#00071c",
     minHeight: "100vh",
+    backgroundColor: "#00071c",
   },
 }));
 
@@ -22,6 +24,7 @@ function App() {
     <Router>
       <Switch>
         <div className={classes.root}>
+          <CssBaseline />
           <Header />
           <Route exact path="/" component={Home} />
           <Route path="/workspace" component={Work} />

@@ -4,7 +4,7 @@ import { projects } from "../data/userData";
 function MoreProjects() {
   return (
     <div>
-      <div class="container px-0 sm:px-5 py-24 mx-auto">
+      <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center text-white">
           <h1 class=" title-font mb-2 text-2xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-4xl">
             {" "}
@@ -14,10 +14,10 @@ function MoreProjects() {
             Here are some projects I built while learning new Tech
           </p>
         </div>
-        <div class="flex flex-wrap -m-4 p-8 sm:p-0">
+        <div class="flex flex-wrap px-8 sm:px-0">
           {projects.map((project) => (
             <div class="xl:w-1/3 md:w-1/2 p-4 text-white transform transition-all duration-300 scale-100 hover:-translate-y-5 text-white hover:text-teal">
-              <div class="bg-navy p-6 rounded h-80">
+              <div class="bg-navy p-6 rounded h-96 sm:h-80">
                 <div class="h-12 flex justify-between items-center justify-center rounded-full text-teal mb-4">
                   <div>
                     <svg
@@ -93,7 +93,7 @@ function MoreProjects() {
                   </div>
 
                   <div class="absolute bottom-12 w-full">
-                    <span class="items-center text-xs py-1 text-gray-300 tracking-wide">
+                    <span class="items-center text-xs py-1 text-gray-300 tracking-wide ">
                       {project.techStack}
                     </span>
                   </div>
