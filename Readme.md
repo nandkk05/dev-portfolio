@@ -105,13 +105,11 @@ Go to `/src/data/userData.js` and fill your information, there are serveral sect
 
 Once you have done with your setup. You need to put your website online!
 
-I recommend to use [Firebase Hosting](https://firebase.google.com/) or [Vercel](https://vercel.com) to achieve this on the EASIEST WAY
-
-You could also host directly with Netlify by linking your own repository.
-
 [![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/saadpasta/developerFolio)
 
 For more information, read [hosting on Netlify](https://create-react-app.dev/docs/deployment/#netlify).
+
+You can also use [Firebase Hosting](https://firebase.google.com/) or [Vercel](https://vercel.com) to deploy your app.
 
 ## Technologies used 🛠️
 
@@ -120,14 +118,7 @@ For more information, read [hosting on Netlify](https://create-react-app.dev/doc
 - [Tailwind CSS](https://sass-lang.com/documentation) - CSS Utility library
 - [React Router](https://www.npmjs.com/package/react-router-dom) - Router
 - [Axios](https://www.npmjs.com/package/axios) - To fetch dev.to API
-
-## Authors
-
-- **Nand Kishor** - [Twitter](https://twitter.com/nandkk05)
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+- [React Scroll](https://www.npmjs.com/package/react-scroll) - For smooth scrolling
 
 ## Project Maintainers 
 
@@ -136,3 +127,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
     <td align="center"><a href="http://nandkk05.github.io"><img src="https://avatars.githubusercontent.com/u/33036554?v=4" width="100px;" alt=""/><br /><sub><b>Nand Kishor</b></sub></a></td>
   </tr>
 </table>
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
